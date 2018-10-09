@@ -1,0 +1,64 @@
+//made in java
+//gives ctrain facts about a number such as sum, number of digits, average of the digits etc.
+
+
+
+import java.util.Scanner;
+public class Main
+{
+  public static void main(String [] args)
+  {
+    Scanner kb = new Scanner(System.in);
+    boolean ifDone = false;
+    
+    while (!ifDone)
+    {
+      System.out.println("Enter a number between 10 and 1,000,000.");
+      int num = kb.nextInt();
+      System.out.println("Original number: " + num);
+    
+    
+      if ((num >= 10) && (num <= 1000000))
+        ifDone = false;
+      else
+      {
+        System.out.println("goodbye!");
+        ifDone=true;
+        continue;
+      }
+    int totDig=0;
+    int evenDig=0;
+    int oddDig=0;
+    int sumDig=0;
+    double avgDig=0;
+    int revDig=0;
+    int curDig=0;
+    
+    int counter = 0;
+    while (num > 0)
+    {
+      counter ++;
+      totDig++;
+      curDig = num % 10;
+      if (curDig % 2 == 0)
+        evenDig++;
+      else
+        oddDig++;
+      num = num / 10;
+      
+      sumDig = sumDig + curDig;
+      avgDig = (double)sumDig / counter;
+      revDig = revDig * 10 + curDig;
+    }
+  System.out.println("Total digits: "+totDig);
+  System.out.println("Total even digits: "+evenDig);
+  System.out.println("Total odd digits: "+oddDig);
+  System.out.println("Sum of digits: "+sumDig);
+  System.out.println("Average of digits: "+avgDig);
+  System.out.println("Reversed digits: "+revDig);
+  System.out.println("=========================");
+  System.out.println();
+  }
+  }
+}
+
